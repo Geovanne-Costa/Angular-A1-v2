@@ -4,10 +4,28 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
+import { RouterModule } from '@angular/router';
+import { GeovanneComponent } from './geovanne/geovanne.component';
+import { GeovanneListaComponent } from './geovanne-lista/geovanne-lista.component';
+import { GeovanneDetalhesComponent } from './geovanne-detalhes/geovanne-detalhes.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot([
+      { path: '', component: GeovanneComponent },
+      { path: 'lista', component: GeovanneListaComponent },
+      { path: 'list/:index', component: GeovanneDetalhesComponent },
+    ]),
+  ],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    GeovanneComponent,
+    GeovanneListaComponent,
+    GeovanneDetalhesComponent,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
